@@ -74,7 +74,7 @@ public class PersonDataService {
         PersonSingleton.getInstance(ctx).addToRequestQueue(jsonObjectRequest);
     }
 
-    public int postPerson(JSONObject person, DataServiceListener dataServiceListener){
+    public void postPerson(JSONObject person, DataServiceListener dataServiceListener){
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 PERSON_API,
@@ -94,10 +94,9 @@ public class PersonDataService {
         );
         // Add the request to the RequestQueue.
         PersonSingleton.getInstance(ctx).addToRequestQueue(jsonObjectRequest);
-        return 1;
     }
 
-    public int deletePerson(int persId, DataServiceListener dataServiceListener){
+    public void deletePerson(int persId, DataServiceListener dataServiceListener){
         String deleteURL = PERSON_API + "/" + persId;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.DELETE,
@@ -118,10 +117,9 @@ public class PersonDataService {
         );
         // Add the request to the RequestQueue.
         PersonSingleton.getInstance(ctx).addToRequestQueue(jsonObjectRequest);
-        return 1;
     }
 
-    public int updatePerson(JSONObject person, int persId, DataServiceListener dataServiceListener){
+    public void updatePerson(JSONObject person, int persId, DataServiceListener dataServiceListener){
         String updateURL = PERSON_API + "/" + persId;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.PUT,
@@ -142,6 +140,5 @@ public class PersonDataService {
         );
         // Add the request to the RequestQueue.
         PersonSingleton.getInstance(ctx).addToRequestQueue(jsonObjectRequest);
-        return 1;
     }
 }
